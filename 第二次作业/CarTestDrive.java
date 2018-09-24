@@ -1,11 +1,11 @@
 import org.omg.CORBA.PRIVATE_MEMBER;
 class Car {
-	private String name;// Æû³µÃû
-	private int tank;// Ê£ÓàÓÍÁ¿
-	private int oilConsumption;// ÓÍºÄ
+	private String name;// æ±½è½¦å
+	private int tank;// å‰©ä½™æ²¹é‡
+	private int oilConsumption;// æ²¹è€—
 
 	public Car() {
-		this.name = "±¼³Û";
+		this.name = "å¥”é©°";
 		this.tank = 0;
 		this.oilConsumption = 0;
 	}
@@ -16,22 +16,22 @@ class Car {
 		this.oilConsumption = oilConsumption;
 	}
 
-	// »ñÈ¡Æû³µÃû
+	// è·å–æ±½è½¦å
 	public String getName() {
 		return name;
 	}
 
-	// »ñÈ¡Æû³µÊ£ÓàÓÍÁ¿
+	// è·å–æ±½è½¦å‰©ä½™æ²¹é‡
 	public int getTank() {
 		return tank;
 	}
 
-	// »ñÈ¡Æû³µÓÍºÄ
+	// è·å–æ±½è½¦æ²¹è€—
 	public int getoilConsumption() {
 		return oilConsumption;
 	}
 
-	// ÅĞ¶ÏÆû³µÊÇ·ñĞèÒª¼ÓÓÍ
+	// åˆ¤æ–­æ±½è½¦æ˜¯å¦éœ€è¦åŠ æ²¹
 	public void gas() {
 		if (tank == 0) {
 			System.out.println("You should fill up the gas tank.");
@@ -40,7 +40,7 @@ class Car {
 		}
 	}
 
-	// ÅĞ¶ÏÆû³µÊÇ·ñÄÜ¿ª
+	// åˆ¤æ–­æ±½è½¦æ˜¯å¦èƒ½å¼€
 	public void run() {
 		if (tank > 0) {
 			System.out.println("The car can run.");
@@ -73,12 +73,12 @@ public class CarTestDrive {
 		cc.run();
 	}
 
-	//»ñÈ¡ÊäÈëµÄÈıÁ¾Æû³µµÄÊôĞÔºó½«ÆäÊôĞÔ´òÓ¡³öÀ´
+	//è·å–è¾“å…¥çš„ä¸‰è¾†æ±½è½¦çš„å±æ€§åå°†å…¶å±æ€§æ‰“å°å‡ºæ¥
 	private void print() {
 		Scanner in = new Scanner(System.in);
 
 		for (int i = 0; i < 3; i++) {
-			System.out.println("ÇëÊäÈëµÚ" + (i + 1) + "Á¾Æû³µµÄ£ºÆû³µÃû¡¢Ê£ÓàÓÍÁ¿¡¢ÒÔ¼°ÓÍºÄ£º");
+			System.out.println("è¯·è¾“å…¥ç¬¬" + (i + 1) + "è¾†æ±½è½¦çš„ï¼šæ±½è½¦åã€å‰©ä½™æ²¹é‡ã€ä»¥åŠæ²¹è€—ï¼š");
 			String name = in.next();
 			int tank = in.nextInt();
 			int oilConsumption = in.nextInt();
@@ -86,9 +86,9 @@ public class CarTestDrive {
 			cars.add(car);
 		}
 		for (int j = 0; j < cars.size(); j++) {
-			System.out.println("µÚ" + (j + 1) + "Á¾Æû³µÃûÎª" + cars.get(j).getName());
-			System.out.println("µÚ" + (j + 1) + "Á¾Æû³µÊ£ÓàÓÍÁ¿Îª" + cars.get(j).getTank());
-			System.out.println("µÚ" + (j + 1) + "Á¾Æû³µÓÍºÄÎª" + cars.get(j).getoilConsumption());
+			System.out.println("ç¬¬" + (j + 1) + "è¾†æ±½è½¦åä¸º" + cars.get(j).getName());
+			System.out.println("ç¬¬" + (j + 1) + "è¾†æ±½è½¦å‰©ä½™æ²¹é‡ä¸º" + cars.get(j).getTank());
+			System.out.println("ç¬¬" + (j + 1) + "è¾†æ±½è½¦æ²¹è€—ä¸º" + cars.get(j).getoilConsumption());
 			cars.get(j).gas();
 			cars.get(j).run();
 		}
