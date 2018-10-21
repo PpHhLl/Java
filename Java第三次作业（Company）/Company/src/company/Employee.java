@@ -5,22 +5,18 @@ import java.util.Scanner;
 import org.omg.CORBA.PRIVATE_MEMBER;
 
 /**
- * @author Åí»ªÀò
- * 2018Äê10ÔÂ15ÈÕ
- * Employee.java
+ * @author å½­åè‰ 2018å¹´10æœˆ15æ—¥ Employee.java
  */
-public class Employee extends Workers{
-//µ÷ÓÃ¸¸ÀàµÄ¹¹Ôìº¯Êı³õÊ¼»¯ĞÕÃûºÍÉúÈÕºó¼ÌĞøÈÃÓÃ»§ÊäÈëĞÅÏ¢³õÊ¼»¯Ô±¹¤¹¤×Ê
-public Employee()
-{
-	super();
-	Scanner in=new Scanner(System.in);
-	System.out.print("Ô±¹¤¹¤×Ê£º");
-	salary=in.nextDouble();
-}
+public class Employee extends Workers {
+	// è°ƒç”¨çˆ¶ç±»çš„æ„é€ å‡½æ•°åˆå§‹åŒ–å§“åå’Œç”Ÿæ—¥åç»§ç»­è®©ç”¨æˆ·è¾“å…¥ä¿¡æ¯åˆå§‹åŒ–å‘˜å·¥å·¥èµ„
+	public Employee() {
+		super();
+		Scanner in = new Scanner(System.in);
+		System.out.print("å‘˜å·¥å·¥èµ„ï¼š");
+		salary = in.nextDouble();
+	}
 
-public void giveGift()
-{
-	System.out.println("¸øÔ±¹¤"+super.getName()+"·¢·ÅÉúÈÕÀñÎï£¡");
-}
+	public void giveGift() {
+		System.out.println("ç»™å‘˜å·¥" + super.getName() + "å‘æ”¾ç”Ÿæ—¥ç¤¼ç‰©ï¼");
+	}
 }
