@@ -16,218 +16,206 @@ import java.util.jar.Attributes.Name;
 import org.omg.CORBA.PUBLIC_MEMBER;
 
 /**
- * @author Åí»ªÀò
- * 2018Äê10ÔÂ17ÈÕ
- * CompanyTestDrive.java
+ * @author å½­åè‰ 2018å¹´10æœˆ17æ—¥ CompanyTestDrive.java
  */
 public class CompanyTestDrive {
-	static CompanyTestDrive company=new CompanyTestDrive();
-	ArrayList<Manager> managers=new ArrayList<Manager>();
-	ArrayList<Employee> employees=new ArrayList<Employee>();
-	ArrayList<Stockholder> stockholders=new ArrayList<Stockholder>();
+	static CompanyTestDrive company = new CompanyTestDrive();
+	ArrayList<Manager> managers = new ArrayList<Manager>();
+	ArrayList<Employee> employees = new ArrayList<Employee>();
+	ArrayList<Stockholder> stockholders = new ArrayList<Stockholder>();
 	Random random = new Random();
-	int profit = random.nextInt(900000)+100000;//¹«Ë¾ÀûÈóÎª900000ÖÁ1000000µÄËæ»úÊı 
-	static String filePath ="D:\\Company.txt";//ÎÄ¼şÂ·¾¶
-	//Éú³ÉÎÄ¼ş
-			public static boolean createFile(String filePath){
-			boolean result = false;
-			File file = new File(filePath);
-			if(!file.exists()){
-				try {
-					result = file.createNewFile();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-			
-			return result;
-			}
-			//Ğ´ÈëÎÄ¼ş
-			public static void writeFile(String filePath, String content) throws IOException{
-				File file = new File(filePath);
-				synchronized (file) {
-					FileWriter fw = new FileWriter(filePath,true);
-					fw.write(content);
-					fw.close();
-				}
-			}
-	
-	public void workersInformation()
-	{
-	
-	
-	createFile(filePath); 
-	Scanner in=new Scanner(System.in);
-	boolean judge=true;//Í¨¹ıjudge¿ØÖÆÊÇ·ñ¼ÌĞøÊäÈëĞÅÏ¢
-	
-	while (judge){
-		System.out.println("ÇëÊäÈë¾­ÀíĞÅÏ¢£º");
-	Manager manager=new Manager();
-	managers.add(manager);
-	System.out.print("ÊÇ·ñ¼ÌĞøÊäÈë¾­ÀíĞÅÏ¢£¿£º£¨Y or N£©");
-	String isContinue = in.nextLine();
-	if (isContinue.equals("N")){
-		judge = false;
-	}
-	}
-	judge = true;
-	
-	while (judge){
-		System.out.println("ÇëÊäÈëÔ±¹¤ĞÅÏ¢£º");
-	Employee employee=new Employee();
-	employees.add(employee);
-	System.out.print("ÊÇ·ñ¼ÌĞøÊäÈëÔ±¹¤ĞÅÏ¢£¿£º£¨Y or N£©");
-	String isContinue = in.nextLine();
-	if (isContinue.equals("N")){
-		judge = false;
-	}
-	}
-	
-	judge=true;
-	
-	while (judge){
-		System.out.println("ÇëÊäÈë¹É¶«ĞÅÏ¢£º");
-	Stockholder stockholder=new Stockholder();
-	stockholders.add(stockholder);
-	System.out.print("ÊÇ·ñ¼ÌĞøÊäÈë¹É¶«ĞÅÏ¢£¿£º£¨Y or N£©");
-	String isContinue = in.nextLine();
-	if (isContinue.equals("N")){
-		judge = false;
-	}
-	}
-	}
-	//²éÑ¯ĞÅÏ¢
-	public void searchInformation() throws IOException
-	{
-		Scanner in=new Scanner(System.in);
-		System.out.println("ÇëÑ¡ÔñÒª²éÑ¯µÄĞÅÏ¢"+"\n"+"1£º²éÑ¯ËùÓĞÈËµÄĞÅÏ¢"+"\t"+"2£º²éÑ¯Ä³Ò»¸öworkerµÄĞÅÏ¢");
-		int number=in.nextInt();
+	int profit = random.nextInt(900000) + 100000;// å…¬å¸åˆ©æ¶¦ä¸º900000è‡³1000000çš„éšæœºæ•°
+	static String filePath = "D:\\Company.txt";// æ–‡ä»¶è·¯å¾„
+	// ç”Ÿæˆæ–‡ä»¶
 
-		File filename = new File(filePath); // Òª¶ÁÈ¡ÒÔÉÏÂ·¾¶µÄinput.txtÎÄ¼ş
-		 // ½¨Á¢Ò»¸ö¶ÔÏó£¬Ëü°ÑÎÄ¼şÄÚÈİ×ª³É¼ÆËã»úÄÜ¶Á¶®µÄÓïÑÔ
-		//²éÑ¯ËùÓĞÔ±¹¤ĞÅÏ¢
-				if(number==1){
-					InputStreamReader reader = new InputStreamReader(
-							new FileInputStream(filename)); // ½¨Á¢Ò»¸öÊäÈëÁ÷¶ÔÏóreader
-					BufferedReader br = new BufferedReader(reader);
-					String line;
-					do {
-							line= br.readLine();//Ò»´Î¶ÁÈ¡ÎÄ¼şÖĞµÄÒ»ĞĞÄÚÈİ
-							if(line!=null)
-								System.out.println(line);
-				}while(line!=null);
-
+	public static boolean createFile(String filePath) {
+		boolean result = false;
+		File file = new File(filePath);
+		if (!file.exists()) {
+			try {
+				result = file.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
-		//²éÑ¯Ä³Ò»¸öworkerµÄĞÅÏ¢
-		while(number==2)
-		{
-			InputStreamReader reader = new InputStreamReader(
-					new FileInputStream(filename)); // ½¨Á¢Ò»¸öÊäÈëÁ÷¶ÔÏóreader
+		}
+
+		return result;
+	}
+
+	// å†™å…¥æ–‡ä»¶
+	public static void writeFile(String filePath, String content) throws IOException {
+		File file = new File(filePath);
+		synchronized (file) {
+			FileWriter fw = new FileWriter(filePath, true);
+			fw.write(content);
+			fw.close();
+		}
+	}
+
+	public void workersInformation() {
+
+		createFile(filePath);
+		Scanner in = new Scanner(System.in);
+		boolean judge = true;// é€šè¿‡judgeæ§åˆ¶æ˜¯å¦ç»§ç»­è¾“å…¥ä¿¡æ¯
+
+		while (judge) {
+			System.out.println("è¯·è¾“å…¥ç»ç†ä¿¡æ¯ï¼š");
+			Manager manager = new Manager();
+			managers.add(manager);
+			System.out.print("æ˜¯å¦ç»§ç»­è¾“å…¥ç»ç†ä¿¡æ¯ï¼Ÿï¼šï¼ˆY or Nï¼‰");
+			String isContinue = in.nextLine();
+			if (isContinue.equals("N")) {
+				judge = false;
+			}
+		}
+		judge = true;
+
+		while (judge) {
+			System.out.println("è¯·è¾“å…¥å‘˜å·¥ä¿¡æ¯ï¼š");
+			Employee employee = new Employee();
+			employees.add(employee);
+			System.out.print("æ˜¯å¦ç»§ç»­è¾“å…¥å‘˜å·¥ä¿¡æ¯ï¼Ÿï¼šï¼ˆY or Nï¼‰");
+			String isContinue = in.nextLine();
+			if (isContinue.equals("N")) {
+				judge = false;
+			}
+		}
+
+		judge = true;
+
+		while (judge) {
+			System.out.println("è¯·è¾“å…¥è‚¡ä¸œä¿¡æ¯ï¼š");
+			Stockholder stockholder = new Stockholder();
+			stockholders.add(stockholder);
+			System.out.print("æ˜¯å¦ç»§ç»­è¾“å…¥è‚¡ä¸œä¿¡æ¯ï¼Ÿï¼šï¼ˆY or Nï¼‰");
+			String isContinue = in.nextLine();
+			if (isContinue.equals("N")) {
+				judge = false;
+			}
+		}
+	}
+
+	// æŸ¥è¯¢ä¿¡æ¯
+	public void searchInformation() throws IOException {
+		Scanner in = new Scanner(System.in);
+		System.out.println("è¯·é€‰æ‹©è¦æŸ¥è¯¢çš„ä¿¡æ¯" + "\n" + "1ï¼šæŸ¥è¯¢æ‰€æœ‰äººçš„ä¿¡æ¯" + "\t" + "2ï¼šæŸ¥è¯¢æŸä¸€ä¸ªworkerçš„ä¿¡æ¯");
+		int number = in.nextInt();
+
+		File filename = new File(filePath); // è¦è¯»å–ä»¥ä¸Šè·¯å¾„çš„input.txtæ–‡ä»¶
+		// å»ºç«‹ä¸€ä¸ªå¯¹è±¡ï¼Œå®ƒæŠŠæ–‡ä»¶å†…å®¹è½¬æˆè®¡ç®—æœºèƒ½è¯»æ‡‚çš„è¯­è¨€
+		// æŸ¥è¯¢æ‰€æœ‰å‘˜å·¥ä¿¡æ¯
+		if (number == 1) {
+			InputStreamReader reader = new InputStreamReader(new FileInputStream(filename)); // å»ºç«‹ä¸€ä¸ªè¾“å…¥æµå¯¹è±¡reader
+			BufferedReader br = new BufferedReader(reader);
+			String line;
+			do {
+				line = br.readLine();// ä¸€æ¬¡è¯»å–æ–‡ä»¶ä¸­çš„ä¸€è¡Œå†…å®¹
+				if (line != null)
+					System.out.println(line);
+			} while (line != null);
+
+		}
+		// æŸ¥è¯¢æŸä¸€ä¸ªworkerçš„ä¿¡æ¯
+		while (number == 2) {
+			InputStreamReader reader = new InputStreamReader(new FileInputStream(filename)); // å»ºç«‹ä¸€ä¸ªè¾“å…¥æµå¯¹è±¡reader
 			BufferedReader br = new BufferedReader(reader);
 			String line = br.readLine();
-			System.out.print("ÇëÊäÈëworkerĞÕÃû£º");
+			System.out.print("è¯·è¾“å…¥workerå§“åï¼š");
 			in.nextLine();
-			String name=in.nextLine();
-			//½«ÎÄ¼şÖĞÃ¿Ò»ĞĞworkerĞÅÏ¢ÖĞµÄĞÕÃûÓëÒª²éÕÒµÄĞÕÃû½øĞĞÆ¥Åä£¬Æ¥Åä³É¹¦Ôò½«¶ÔÓ¦Ô±¹¤ÄÇÒ»ĞĞÔ±¹¤ĞÅÏ¢½øĞĞÊä³ö
+			String name = in.nextLine();
+			// å°†æ–‡ä»¶ä¸­æ¯ä¸€è¡Œworkerä¿¡æ¯ä¸­çš„å§“åä¸è¦æŸ¥æ‰¾çš„å§“åè¿›è¡ŒåŒ¹é…ï¼ŒåŒ¹é…æˆåŠŸåˆ™å°†å¯¹åº”å‘˜å·¥é‚£ä¸€è¡Œå‘˜å·¥ä¿¡æ¯è¿›è¡Œè¾“å‡º
 			while (line != null) {
-				String na = line.split(" ")[1];// ½«ÎÄ¼şÖĞ¶ÁÈ¡µÄÒ»ĞĞĞÅÏ¢°´¿Õ¸ñ½øĞĞ²ğ·Ö£¬µÃµ½workerµÄÃû×Ö
+				String na = line.split(" ")[1];// å°†æ–‡ä»¶ä¸­è¯»å–çš„ä¸€è¡Œä¿¡æ¯æŒ‰ç©ºæ ¼è¿›è¡Œæ‹†åˆ†ï¼Œå¾—åˆ°workerçš„åå­—
 				//
-				if(na.equals(name))
-				{
+				if (na.equals(name)) {
 					System.out.println(line);
 				}
-				line = br.readLine();//Ò»´Î¶ÁÈ¡ÎÄ¼şÖĞµÄÒ»ĞĞÄÚÈİ
+				line = br.readLine();// ä¸€æ¬¡è¯»å–æ–‡ä»¶ä¸­çš„ä¸€è¡Œå†…å®¹
 			}
-			System.out.print("ÊÇ·ñ¼ÌĞø²éÑ¯(Y or N)£º");
+			System.out.print("æ˜¯å¦ç»§ç»­æŸ¥è¯¢(Y or N)ï¼š");
 			String isContinue = in.nextLine();
-			if(isContinue.equals("N")||isContinue.equals("n"))
-				number=3;
+			if (isContinue.equals("N") || isContinue.equals("n"))
+				number = 3;
 		}
 
-		
 	}
-	//·¢·Å¹¤×Ê¡¢ÀñÎïºÍ·Öºì
-	public void finance()
-	{
-		Scanner in=new Scanner(System.in);
-		System.out.print("ÇëÊäÈëÄêºÍÔÂ·İ£¨xxxx.xx£©£º");
-		String ym=in.nextLine();
-		String m=ym.split("\\.")[1];//½«ÊäÈëµÄ×Ö·û´®ÓÃ.½øĞĞ·Ö¸î£¬µÃµ½ÔÂ·İ£¬´Ó¶øÅĞ¶ÏÊÇ·ñ·¢·ÅÉúÈÕÀñÎïºÍ¹É¶«·Öºì
-		for(Employee employee:employees)
-		{
-			String birthday=employee.getBirthday();
-			String bir=birthday.split("\\.")[1];
+
+	// å‘æ”¾å·¥èµ„ã€ç¤¼ç‰©å’Œåˆ†çº¢
+	public void finance() {
+		Scanner in = new Scanner(System.in);
+		System.out.print("è¯·è¾“å…¥å¹´å’Œæœˆä»½ï¼ˆxxxx.xxï¼‰ï¼š");
+		String ym = in.nextLine();
+		String m = ym.split("\\.")[1];// å°†è¾“å…¥çš„å­—ç¬¦ä¸²ç”¨.è¿›è¡Œåˆ†å‰²ï¼Œå¾—åˆ°æœˆä»½ï¼Œä»è€Œåˆ¤æ–­æ˜¯å¦å‘æ”¾ç”Ÿæ—¥ç¤¼ç‰©å’Œè‚¡ä¸œåˆ†çº¢
+		for (Employee employee : employees) {
+			String birthday = employee.getBirthday();
+			String bir = birthday.split("\\.")[1];
 			employee.getSalary();
-			if(m.equals(bir))
-			{
+			if (m.equals(bir)) {
 				employee.giveGift();
 			}
-			String content=(ym+" "+employee.getName()+" "+employee.getBirthday()+" "+employee.getSalary()+"\n");
+			String content = (ym + " " + employee.getName() + " " + employee.getBirthday() + " " + employee.getSalary()
+					+ "\n");
 			try {
 				writeFile(filePath, content);
-				System.out.println("Ô±¹¤"+employee.getName()+"·¢·Å¹¤×ÊÍê³É£¡½ğ¶îÎª"+employee.getSalary()+"Ôª");
+				System.out.println("å‘˜å·¥" + employee.getName() + "å‘æ”¾å·¥èµ„å®Œæˆï¼é‡‘é¢ä¸º" + employee.getSalary() + "å…ƒ");
 			} catch (IOException e) {
-				// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
+				// TODO è‡ªåŠ¨ç”Ÿæˆçš„ catch å—
 				e.printStackTrace();
 			}
 		}
-		for(Manager manager:managers)
-		{
-			String birthday=manager.getBirthday();
-			String bir=birthday.split("\\.")[1];
+		for (Manager manager : managers) {
+			String birthday = manager.getBirthday();
+			String bir = birthday.split("\\.")[1];
 			manager.getSalary();
-			
-			if(m.equals(bir))
-			{
+
+			if (m.equals(bir)) {
 				manager.giveGift();
 			}
-			String content=(ym+" "+manager.getName()+" "+manager.getBirthday()+" "+manager.getSalary()+" "+manager.getBonus()+"\n");
+			String content = (ym + " " + manager.getName() + " " + manager.getBirthday() + " " + manager.getSalary()
+					+ " " + manager.getBonus() + "\n");
 			try {
 				company.writeFile(filePath, content);
-				System.out.println("¾­Àí"+manager.getName()+"¹¤×Ê·¢·ÅÍê³É£¡½ğ¶îÎª"+manager.getSalary()+"Ôª");
+				System.out.println("ç»ç†" + manager.getName() + "å·¥èµ„å‘æ”¾å®Œæˆï¼é‡‘é¢ä¸º" + manager.getSalary() + "å…ƒ");
 			} catch (IOException e) {
-				// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
+				// TODO è‡ªåŠ¨ç”Ÿæˆçš„ catch å—
 				e.printStackTrace();
 			}
 		}
-		if(m.equals("12"))
-		{
-			for(Stockholder stockholder:stockholders)
-			{
+		if (m.equals("12")) {
+			for (Stockholder stockholder : stockholders) {
 				stockholder.setSalary(profit);
-				String content=(ym+" "+stockholder.getName()+" "+stockholder.getBirthday()+" "+stockholder.getSalary()+"\n");
+				String content = (ym + " " + stockholder.getName() + " " + stockholder.getBirthday() + " "
+						+ stockholder.getSalary() + "\n");
 				try {
 					company.writeFile(filePath, content);
-					System.out.println("¹É¶«"+stockholder.getName()+"·ÖºìÍê³É£¡¹É¶«·ÖºìÎª"+(float)(stockholder.salary)+"Ôª");
-					
+					System.out
+							.println("è‚¡ä¸œ" + stockholder.getName() + "åˆ†çº¢å®Œæˆï¼è‚¡ä¸œåˆ†çº¢ä¸º" + (float) (stockholder.salary) + "å…ƒ");
+
 				} catch (IOException e) {
-					// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
+					// TODO è‡ªåŠ¨ç”Ÿæˆçš„ catch å—
 					e.printStackTrace();
 				}
 			}
 
 		}
 	}
+
 	public static void main(String[] args) throws IOException {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
-		
-		Scanner in=new Scanner(System.in);
-		System.out.println("ÇëÊäÈëworkerµÄĞÅÏ¢£º");
-			company.workersInformation();
-		while(true)
-		{
-			System.out.println("ÇëÑ¡ÔñÒª½øĞĞµÄ²Ù×÷£º1.²éÑ¯ĞÅÏ¢"+"\t"+"2.·¢·Å¹¤×Ê¡¢ÀñÎïºÍ·Öºì");
-			int choice=in.nextInt();
-			if(choice==1){
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
+
+		Scanner in = new Scanner(System.in);
+		System.out.println("è¯·è¾“å…¥workerçš„ä¿¡æ¯ï¼š");
+		company.workersInformation();
+		while (true) {
+			System.out.println("è¯·é€‰æ‹©è¦è¿›è¡Œçš„æ“ä½œï¼š1.æŸ¥è¯¢ä¿¡æ¯" + "\t" + "2.å‘æ”¾å·¥èµ„ã€ç¤¼ç‰©å’Œåˆ†çº¢");
+			int choice = in.nextInt();
+			if (choice == 1) {
 				company.searchInformation();
-		}
-			else{
+			} else {
 				company.finance();
 			}
-			
+
 		}
-		
-}
-}
 
-
+	}
+}
