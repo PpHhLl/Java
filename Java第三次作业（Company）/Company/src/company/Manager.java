@@ -2,29 +2,21 @@ package company;
 
 import java.util.Scanner;
 
+import org.omg.CORBA.PRIVATE_MEMBER;
+
 /**
- * @author Åí»ªÀò
- * 2018Äê10ÔÂ15ÈÕ
- * Manager.java
+ * @author å½­åè‰ 2018å¹´10æœˆ15æ—¥ Employee.java
  */
-public class Manager extends Workers{
-	private int bonus;//¾­Àí½±½ğ
-	//µ÷ÓÃ¸¸ÀàµÄ¹¹Ôìº¯ÊıºóÈÃÓÃ»§ÊäÈëĞÅÏ¢³õÊ¼»¯¾­Àí½±½ğ
-	public Manager()
-	{
+public class Employee extends Workers {
+	// è°ƒç”¨çˆ¶ç±»çš„æ„é€ å‡½æ•°åˆå§‹åŒ–å§“åå’Œç”Ÿæ—¥åç»§ç»­è®©ç”¨æˆ·è¾“å…¥ä¿¡æ¯åˆå§‹åŒ–å‘˜å·¥å·¥èµ„
+	public Employee() {
 		super();
-		Scanner in=new Scanner(System.in);
-		System.out.print("¾­Àí¹¤×Ê£º");
-		salary=in.nextDouble();
-		bonus=(int)(Math.random()*10000);
-		System.out.println("¾­Àí½±½ğ£º"+bonus);
+		Scanner in = new Scanner(System.in);
+		System.out.print("å‘˜å·¥å·¥èµ„ï¼š");
+		salary = in.nextDouble();
 	}
-	public int getBonus()
-{
-		return bonus;
-}
-	public void giveGift()
-	{
-		System.out.println("¸ø¾­Àí"+super.getName()+"·¢·ÅÉúÈÕÀñÎï£¡");
+
+	public void giveGift() {
+		System.out.println("ç»™å‘˜å·¥" + super.getName() + "å‘æ”¾ç”Ÿæ—¥ç¤¼ç‰©ï¼");
 	}
 }
