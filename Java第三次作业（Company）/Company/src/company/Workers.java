@@ -3,45 +3,43 @@ package company;
 import java.util.Scanner;
 
 /**
- * @author Åí»ªÀò
- * 2018Äê10ÔÂ17ÈÕ
- * People.java
+ * @author å½­åè‰ 2018å¹´10æœˆ17æ—¥ People.java
  */
 public abstract class Workers {
-	private String name;//workerÃû×Ö
-	private String birthday;//workerÉúÈÕ
-	protected double salary;//¾­ÀíºÍÔ±¹¤µÄ¹¤×Ê£¬¹É¶«·Öºì
-	//¹¹Ôìº¯Êı£ºÍ¨¹ıÓÃ»§ÊäÈëµÄĞÅÏ¢À´³õÊ¼»¯Ô±¹¤¡¢¾­Àí¡¢¹É¶«¶¼ÓĞµÄĞÕÃûºÍÉúÈÕÊôĞÔ
-	public Workers()
-	{
-		Scanner in=new Scanner(System.in);
-		System.out.print("ĞÕÃû£º");
-		name=in.next();
-		System.out.print("ÉúÈÕ(year.month.day)£º");
-		birthday=in.next();
+	private String name;// workeråå­—
+	private String birthday;// workerç”Ÿæ—¥
+	protected double salary;// ç»ç†å’Œå‘˜å·¥çš„å·¥èµ„ï¼Œè‚¡ä¸œåˆ†çº¢
+	// æ„é€ å‡½æ•°ï¼šé€šè¿‡ç”¨æˆ·è¾“å…¥çš„ä¿¡æ¯æ¥åˆå§‹åŒ–å‘˜å·¥ã€ç»ç†ã€è‚¡ä¸œéƒ½æœ‰çš„å§“åå’Œç”Ÿæ—¥å±æ€§
+
+	public Workers() {
+		Scanner in = new Scanner(System.in);
+		System.out.print("å§“åï¼š");
+		name = in.next();
+		System.out.print("ç”Ÿæ—¥(year.month.day)ï¼š");
+		birthday = in.next();
 	}
-	public void setName(String na)
-	{
-		name=na;
+
+	public void setName(String na) {
+		name = na;
 	}
-	public String getName()
-	{
+
+	public String getName() {
 		return name;
 	}
-	public void setBirthday(String b)
-	{
-		birthday=b;
+
+	public void setBirthday(String b) {
+		birthday = b;
 	}
-	public String getBirthday()
-	{
+
+	public String getBirthday() {
 		return birthday;
 	}
-	public void setSalary(double s)
-	{
-		salary=s;
+
+	public void setSalary(double s) {
+		salary = s;
 	}
-	public double getSalary()
-	{
+
+	public double getSalary() {
 		return salary;
 	}
 }
