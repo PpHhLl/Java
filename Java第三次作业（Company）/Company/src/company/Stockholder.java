@@ -4,33 +4,29 @@ import java.util.Scanner;
 import java.util.Set;
 
 /**
- * @author Åí»ªÀò
- * 2018Äê10ÔÂ15ÈÕ
- * Stockholder.java
+ * @author å½­åè‰ 2018å¹´10æœˆ15æ—¥ Stockholder.java
  */
-public class Stockholder extends Workers{
-private int stock;//¹É¶«¹É·İ
-//µ÷ÓÃ¸¸ÀàµÄ¹¹Ôìº¯Êıºó¼ÌĞøÈÃÓÃ»§ÊäÈëĞÅÏ¢³õÊ¼»¯¹É¶«µÄ¹É·İ
-public Stockholder ()
-{
-	super();
-	Scanner in=new Scanner(System.in);
-	System.out.print("¹É¶«¹É·İËùÕ¼°Ù·Ö±È£º");
-	stock=in.nextInt();
-	
-	} 
-public void setStock(int st)
-{
-	stock=st;
-}
+public class Stockholder extends Workers {
+	private int stock;// è‚¡ä¸œè‚¡ä»½
+	// è°ƒç”¨çˆ¶ç±»çš„æ„é€ å‡½æ•°åç»§ç»­è®©ç”¨æˆ·è¾“å…¥ä¿¡æ¯åˆå§‹åŒ–è‚¡ä¸œçš„è‚¡ä»½
 
-public float getStock()
-{
-	return stock;
-}
+	public Stockholder() {
+		super();
+		Scanner in = new Scanner(System.in);
+		System.out.print("è‚¡ä¸œè‚¡ä»½æ‰€å ç™¾åˆ†æ¯”ï¼š");
+		stock = in.nextInt();
 
-public void setSalary(int profit)
-{
-	salary=(stock*0.01*profit*0.1);
-}
+	}
+
+	public void setStock(int st) {
+		stock = st;
+	}
+
+	public float getStock() {
+		return stock;
+	}
+
+	public void setSalary(int profit) {
+		salary = (stock * 0.01 * profit * 0.1);
+	}
 }
